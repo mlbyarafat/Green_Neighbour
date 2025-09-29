@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ tfunc('dashboard') }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded shadow">
+    <div class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold mb-4 text-green-700">{{ tfunc('dashboard') }}</h1>
+      <div>
+        <a href="/" class="inline-block bg-blue-500 text-white py-2 px-4 rounded">{{ tfunc('title') }}</a>
+      </div>
+    </div>
+
+    <p class="mb-4">{{ tfunc('dashboard') }} — Total CO₂ Saved: <strong>{{ total }} kg</strong></p>
+
+    <table class="w-full border">
+      <thead>
+        <tr class="bg-green-200">
+          <th class="p-2">Name</th>
+          <th class="p-2">Action</th>
+          <th class="p-2">Qty</th>
+          <th class="p-2">CO₂</th>
+          <th class="p-2">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in actions %}
+        <tr class="border-t">
+          <td class="p-2">{{ a[0] }}</td>
+          <td class="p-2">{{ action_label(a[1]) }}</td>
+          <td class="p-2">{{ a[2] }}</td>
+          <td class="p-2">{{ a[3] }}</td>
+          <td class="p-2">{{ a[4] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+</body>
+</html>
